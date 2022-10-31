@@ -15,7 +15,6 @@ if /i "%1" == "i386" goto :x86
 if /i "%1" == "amd64" goto :amd64
 if /i "%1" == "x86_64" goto :amd64
 if /i "%1" == "x64" goto :amd64
-if /i "%1" == "msvc10" goto :msvc10
 if /i "%1" == "msvc12" goto :msvc12
 if /i "%1" == "msvc14" goto :msvc14
 if /i "%1" == "msvc15" goto :msvc15
@@ -35,27 +34,26 @@ exit -1
 
 :: Platform
 
+:: NB: in recent versions of CMake:
+:: - The architecture is not passed any more as part of the generator name (but in the -A flag)
+::   See eg. https://cmake.org/cmake/help/latest/generator/Visual%20Studio%2017%202022.html
+:: - VS 2010 and 2012 are deprecated
+
 :x86
 set TARGET_CPU=x86
-set CMAKE_GENERATOR_SUFFIX=
+set CMAKE_A_SETTING=Win32
 shift
 goto :loop
 
 :amd64
 set TARGET_CPU=amd64
-set CMAKE_GENERATOR_SUFFIX= Win64
+set CMAKE_A_SETTING=x64
 shift
 goto :loop
 
 :: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 :: Toolchain
-
-:msvc10
-set TOOLCHAIN=msvc10
-set CMAKE_GENERATOR=Visual Studio 10 2010
-shift
-goto :loop
 
 :msvc12
 set TOOLCHAIN=msvc12
@@ -78,12 +76,14 @@ goto :loop
 :msvc16
 set TOOLCHAIN=msvc16
 set CMAKE_GENERATOR=Visual Studio 16 2019
+set CMAKE_GENERATOR_SUFFIX=
 shift
 goto :loop
 
 :msvc17
 set TOOLCHAIN=msvc17
 set CMAKE_GENERATOR=Visual Studio 17 2022
+set CMAKE_GENERATOR_SUFFIX=
 shift
 goto :loop
 
@@ -178,7 +178,8 @@ set LLVM_RELEASE_DIR=%LLVM_RELEASE_DIR:\=/%
 set LLVM_RELEASE_URL=https://github.com/vovkos/llvm-package-windows/releases/download/%LLVM_RELEASE_TAG%/%LLVM_RELEASE_FILE%
 
 set LLVM_CMAKE_CONFIGURE_FLAGS= ^
-	-G "%CMAKE_GENERATOR%%CMAKE_GENERATOR_SUFFIX%" ^
+	-G "%CMAKE_GENERATOR%" ^
+	-A=%CMAKE_A_SETTING% ^
 	-Thost=x64 ^
 	-DCMAKE_INSTALL_PREFIX=%LLVM_RELEASE_DIR% ^
 	-DCMAKE_DISABLE_FIND_PACKAGE_LibXml2=TRUE ^
@@ -210,7 +211,8 @@ set CLANG_RELEASE_DIR=%WORKING_DIR%\%CLANG_RELEASE_NAME%
 set CLANG_RELEASE_DIR=%CLANG_RELEASE_DIR:\=/%
 
 set CLANG_CMAKE_CONFIGURE_FLAGS= ^
-	-G "%CMAKE_GENERATOR%%CMAKE_GENERATOR_SUFFIX%" ^
+	-G "%CMAKE_GENERATOR%" ^
+	-A=%CMAKE_A_SETTING% ^
 	-DCMAKE_INSTALL_PREFIX=%CLANG_RELEASE_DIR% ^
 	-DCMAKE_DISABLE_FIND_PACKAGE_LibXml2=TRUE ^
 	-DLLVM_USE_CRT_DEBUG=%LLVM_CRT%d ^
