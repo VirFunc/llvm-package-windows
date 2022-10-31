@@ -19,6 +19,8 @@ if /i "%1" == "msvc10" goto :msvc10
 if /i "%1" == "msvc12" goto :msvc12
 if /i "%1" == "msvc14" goto :msvc14
 if /i "%1" == "msvc15" goto :msvc15
+if /i "%1" == "msvc16" goto :msvc16
+if /i "%1" == "msvc17" goto :msvc17
 if /i "%1" == "libcmt" goto :libcmt
 if /i "%1" == "msvcrt" goto :msvcrt
 if /i "%1" == "dbg" goto :dbg
@@ -73,9 +75,22 @@ set CMAKE_GENERATOR=Visual Studio 15 2017
 shift
 goto :loop
 
+:msvc16
+set TOOLCHAIN=msvc16
+set CMAKE_GENERATOR=Visual Studio 16 2019
+shift
+goto :loop
+
+:msvc17
+set TOOLCHAIN=msvc17
+set CMAKE_GENERATOR=Visual Studio 17 2022
+shift
+goto :loop
+
 :: . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 :: CRT
+
 
 :libcmt
 set CRT=libcmt
@@ -131,7 +146,7 @@ if /i "%BUILD_MASTER%" == "true" (
 )
 
 if "%TARGET_CPU%" == "" goto :amd64
-if "%TOOLCHAIN%" == "" goto :msvc14
+if "%TOOLCHAIN%" == "" goto :msvc17
 if "%CRT%" == "" goto :libcmt
 if "%CONFIGURATION%" == "" goto :release
 
