@@ -60,6 +60,8 @@ jobs:
           files: ${{steps.BUILD.outputs.DEPLOY_FILE}}
 
   windowsBuildClang:
+    needs: windowsBuildLLVM
+    continue-on-error: true
     name: Windows Build
     runs-on: windows-2022
     env:
