@@ -54,7 +54,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.ref_name }}
           draft: true
           prerelease: false
           files: ${{steps.BUILD.outputs.DEPLOY_FILE}}
@@ -109,7 +109,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.ref_name }}
           draft: true
           prerelease: false
           files: ${{steps.BUILD.outputs.DEPLOY_FILE}}
