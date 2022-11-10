@@ -1,8 +1,8 @@
 LLVM packages for Windows
 =========================
 
-.. image:: https://github.com/vovkos/llvm-package-windows/actions/workflows/ci.yml/badge.svg
-	:target: https://github.com/vovkos/llvm-package-windows/actions/workflows/ci.yml
+.. image:: https://github.com/SakuraEngine/llvm-package-windows/actions/workflows/ci.yml/badge.svg
+	:target: https://github.com/SakuraEngine/llvm-package-windows/actions/workflows/ci.yml
 .. image:: https://img.shields.io/badge/donate-@jancy.org-blue.svg
 	:align: right
 	:target: http://jancy.org/donate.html?donate=llvm-package
@@ -17,55 +17,15 @@ Releases
 		- Clang Version
 		- Remarks
 
-	*	- 2021-Jul-25
-		- `LLVM 13.0.0 <https://github.com/vovkos/llvm-package-windows/releases/llvm-master>`_
-		- `Clang 13.0.0 <https://github.com/vovkos/llvm-package-windows/releases/clang-master>`_
+	*	- 2022-Dec-10
+		- `LLVM 15.0.3 <https://github.com/SakuraEngine/llvm-package-windows/releases/llvm-master>`_
+		- `Clang 15.0.3 <https://github.com/SakuraEngine/llvm-package-windows/releases/clang-master>`_
 		- The LLVM master branch
-
-	*	- 2021-Jul-08
-		- `LLVM 12.0.1 <https://github.com/vovkos/llvm-package-windows/releases/llvm-12.0.1>`_
-		- `Clang 12.0.1 <https://github.com/vovkos/llvm-package-windows/releases/clang-12.0.1>`_
-		- The latest official LLVM release
-
-	*	- 2021-Feb-25
-		- `LLVM 11.1.0 <https://github.com/vovkos/llvm-package-windows/releases/llvm-11.1.0>`_
-		- `Clang 11.1.0 <https://github.com/vovkos/llvm-package-windows/releases/clang-11.1.0>`_
-		-
-
-	*	- 2020-Aug-06
-		- `LLVM 10.0.1 <https://github.com/vovkos/llvm-package-windows/releases/llvm-10.0.1>`_
-		- `Clang 10.0.1 <https://github.com/vovkos/llvm-package-windows/releases/clang-10.0.1>`_
-		-
-
-	*	- 2019-Dec-20
-		- `LLVM 9.0.1 <https://github.com/vovkos/llvm-package-windows/releases/llvm-9.0.1>`_
-		- `Clang 9.0.1 <https://github.com/vovkos/llvm-package-windows/releases/clang-9.0.1>`_
-		-
-
-	*	- 2019-Jul-19
-		- `LLVM 8.0.1 <https://github.com/vovkos/llvm-package-windows/releases/llvm-8.0.1>`_
-		- `Clang 8.0.1 <https://github.com/vovkos/llvm-package-windows/releases/clang-8.0.1>`_
-		- The latest LLVM that still can be compiled with MSVC 2015
-
-	*	- 2019-May-10
-		- `LLVM 7.1.0 <https://github.com/vovkos/llvm-package-windows/releases/llvm-7.1.0>`_
-		- `Clang 7.1.0 <https://github.com/vovkos/llvm-package-windows/releases/clang-7.1.0>`_
-		- The ABI compatibility with GCC fix for LLVM 7
-
-	*	- 2016-Dec-23
-		- `LLVM 3.9.1 <https://github.com/vovkos/llvm-package-windows/releases/llvm-3.9.1>`_
-		- `Clang 3.9.1 <https://github.com/vovkos/llvm-package-windows/releases/clang-3.9.1>`_
-		- The latest LLVM that still can be compiled with MSVC 2013
-
-	*	- 2014-Jun-19
-		- `LLVM 3.4.2 <https://github.com/vovkos/llvm-package-windows/releases/llvm-3.4.2>`_
-		- `Clang 3.4.2 <https://github.com/vovkos/llvm-package-windows/releases/clang-3.4.2>`_
-		- The latest LLVM that still can be compiled with MSVC 2010
 
 	*	-
 		- LLVM x.x.x
 		- Clang x.x.x
-		- Create a `new issue <https://github.com/vovkos/llvm-package-windows/issues/new>`__ to request a particular LLVM version
+		- Create a `new issue <https://github.com/SakuraEngine/llvm-package-windows/issues/new>`__ to request a particular LLVM version
 
 Abstract
 --------
@@ -99,4 +59,4 @@ The resulting LLVM binary packages are uploaded as GitHub Release artifacts. Com
 Sample
 ------
 
-* `Jancy <https://github.com/vovkos/jancy>`__ uses ``llvm-package-windows`` for CI testing on a range of configurations and LLVM versions. See `build logs <https://ci.appveyor.com/project/vovkos/jancy>`__ for more details.
+* `Jancy <https://github.com/SakuraEngine/jancy>`__ uses ``llvm-package-windows`` for CI testing on a range of configurations and LLVM versions. See `build logs <https://ci.appveyor.com/project/SakuraEngine/jancy>`__ for more details.
