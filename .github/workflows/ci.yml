@@ -10,7 +10,7 @@ jobs:
     name: Windows Build
     runs-on: windows-2022
     env:
-      BUILD_PROJECT: llvm
+      BUILD_PROJECT: clang
       BUILD_MASTER: false
       LLVM_VERSION: 14.0.6
       MSVC: msvc17
