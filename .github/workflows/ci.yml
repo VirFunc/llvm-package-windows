@@ -13,7 +13,7 @@ jobs:
       BUILD_PROJECT: llvm
       BUILD_MASTER: false
       LLVM_VERSION: 14.0.6
-      MSVC: msvc17
+      MSVC: msvc22
 
     strategy:
       fail-fast: false
@@ -23,7 +23,7 @@ jobs:
         # - libcmt
 
         TARGET_CPU:
-          # - x86
+          # - amd64
           - amd64
 
         CONFIGURATION:
