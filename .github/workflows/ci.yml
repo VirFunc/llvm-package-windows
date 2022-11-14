@@ -12,7 +12,7 @@ jobs:
     env:
       BUILD_PROJECT: llvm
       BUILD_MASTER: false
-      LLVM_VERSION: 15.0.0
+      LLVM_VERSION: 15.0.4
       MSVC: msvc17
 
     strategy:
@@ -67,7 +67,7 @@ jobs:
     env:
       BUILD_PROJECT: clang
       BUILD_MASTER: false
-      LLVM_VERSION: 15.0.0
+      LLVM_VERSION: 15.0.4
       MSVC: msvc17
 
     strategy:

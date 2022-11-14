@@ -22,8 +22,8 @@ if /i "%BUILD_MASTER%" == "true" (
 ) else (
 	powershell "Invoke-WebRequest -Uri %LLVM_DOWNLOAD_URL% -OutFile %WORKING_DIR%\%LLVM_DOWNLOAD_FILE%"
 	7z x -y %WORKING_DIR%\%LLVM_DOWNLOAD_FILE% -o%WORKING_DIR%
-	7z x -y %WORKING_DIR%\llvm-%LLVM_VERSION%.src.tar -o%WORKING_DIR%
-	ren %WORKING_DIR%\llvm-%LLVM_VERSION%.src llvm
+	7z x -y %WORKING_DIR%\llvm-project-%LLVM_VERSION%.src.tar -o%WORKING_DIR%
+	ren %WORKING_DIR%\llvm-project-%LLVM_VERSION%.src llvm
 )
 
 if "%CONFIGURATION%" == "Debug" goto dbg
