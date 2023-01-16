@@ -13,7 +13,7 @@ jobs:
       BUILD_PROJECT: llvm
       BUILD_MASTER: false
       LLVM_VERSION: 15.0.4
-      MSVC: msvc17
+      MSVC: msvc16
 
     strategy:
       fail-fast: false
@@ -68,7 +68,7 @@ jobs:
       BUILD_PROJECT: clang
       BUILD_MASTER: false
       LLVM_VERSION: 15.0.4
-      MSVC: msvc17
+      MSVC: msvc16
 
     strategy:
       fail-fast: false
