@@ -24,6 +24,11 @@ if /i "%BUILD_MASTER%" == "true" (
 	7z x -y %WORKING_DIR%\%LLVM_DOWNLOAD_FILE% -o%WORKING_DIR%
 	7z x -y %WORKING_DIR%\llvm-%LLVM_VERSION%.src.tar -o%WORKING_DIR%
 	ren %WORKING_DIR%\llvm-%LLVM_VERSION%.src llvm
+	powershell "Invoke-WebRequest -Uri %LLVM_CMAKE_DOWNLOAD_URL% -OutFile %WORKING_DIR%\%LLVM_CMAKE_DOWNLOAD_FILE%"
+	7z x -y %WORKING_DIR%\%LLVM_CMAKE_DOWNLOAD_FILE% -o%WORKING_DIR%
+	7z x -y %WORKING_DIR%\cmake-%LLVM_Version%.src.tar -o%WORKING_DIR%
+	ren %WORKING_DIR%\cmake-%LLVM_VERSION%.src cmake
+	xcopy %WORKING_DIR%\cmake\Modules\*.* %WORKING_DIR%\llvm\cmake\modules /Y
 )
 
 if "%CONFIGURATION%" == "Debug" goto dbg
@@ -58,6 +63,11 @@ if /i "%BUILD_MASTER%" == "true" (
 	7z x -y %WORKING_DIR%\%CLANG_DOWNLOAD_FILE% -o%WORKING_DIR%
 	7z x -y %WORKING_DIR%\%CLANG_DOWNLOAD_FILE_PREFIX%%LLVM_VERSION%.src.tar -o%WORKING_DIR%
 	ren %WORKING_DIR%\%CLANG_DOWNLOAD_FILE_PREFIX%%LLVM_VERSION%.src clang
+	powershell "Invoke-WebRequest -Uri %LLVM_CMAKE_DOWNLOAD_URL% -OutFile %WORKING_DIR%\%LLVM_CMAKE_DOWNLOAD_FILE%"
+	7z x -y %WORKING_DIR%\%LLVM_CMAKE_DOWNLOAD_FILE% -o%WORKING_DIR%
+	7z x -y %WORKING_DIR%\cmake-%LLVM_Version%.src.tar -o%WORKING_DIR%
+	ren %WORKING_DIR%\cmake-%LLVM_VERSION%.src cmake
+	xcopy %WORKING_DIR%\cmake\Modules\*.* %WORKING_DIR%\clang\cmake\modules /Y
 )
 
 perl compare-versions.pl %LLVM_VERSION% 11
