@@ -154,7 +154,7 @@ set TAR_SUFFIX=.tar.xz
 perl compare-versions.pl %LLVM_VERSION% 3.5.0
 if %errorlevel% == -1 set TAR_SUFFIX=.tar.gz
 
-set BASE_DOWNLOAD_URL=https://github.com/SakuraEngine/llvm-project/releases/download/llvmorg-%LLVM_VERSION%
+set BASE_DOWNLOAD_URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-%LLVM_VERSION%
 set BASE_DOWNLOAD_URL_LEGACY=http://releases.llvm.org/%LLVM_VERSION%
 perl compare-versions.pl %LLVM_VERSION% 7.1.0
 if %errorlevel% == -1 set BASE_DOWNLOAD_URL=%BASE_DOWNLOAD_URL_LEGACY%
@@ -168,14 +168,14 @@ set CLANG_DOWNLOAD_FILE_PREFIX=clang-
 perl compare-versions.pl %LLVM_VERSION% 9.0.0
 if %errorlevel% == -1 set CLANG_DOWNLOAD_FILE_PREFIX=cfe-
 
-set LLVM_MASTER_URL=https://github.com/SakuraEngine/llvm-project
+set LLVM_MASTER_URL=https://github.com/llvm/llvm-project
 set LLVM_DOWNLOAD_FILE=llvm-%LLVM_VERSION%.src%TAR_SUFFIX%
 set LLVM_DOWNLOAD_URL=%BASE_DOWNLOAD_URL%/%LLVM_DOWNLOAD_FILE%
 set LLVM_RELEASE_NAME=llvm-%LLVM_VERSION%-windows-%TARGET_CPU%-%TOOLCHAIN%-%CRT%%DEBUG_SUFFIX%
 set LLVM_RELEASE_FILE=%LLVM_RELEASE_NAME%.7z
 set LLVM_RELEASE_DIR=%WORKING_DIR%\%LLVM_RELEASE_NAME%
 set LLVM_RELEASE_DIR=%LLVM_RELEASE_DIR:\=/%
-set LLVM_RELEASE_URL=https://github.com/SakuraEngine/llvm-package-windows/releases/download/%LLVM_RELEASE_TAG%/%LLVM_RELEASE_FILE%
+set LLVM_RELEASE_URL=https://github.com/VirFunc/llvm-package-windows/releases/download/%LLVM_RELEASE_TAG%/%LLVM_RELEASE_FILE%
 
 set LLVM_CMAKE_CONFIGURE_FLAGS= ^
 	-G "%CMAKE_GENERATOR%" ^

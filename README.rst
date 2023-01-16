@@ -1,8 +1,8 @@
 LLVM packages for Windows
 =========================
 
-.. image:: https://github.com/SakuraEngine/llvm-package-windows/actions/workflows/ci.yml/badge.svg
-	:target: https://github.com/SakuraEngine/llvm-package-windows/actions/workflows/ci.yml
+.. image:: https://github.com/VirFunc/llvm-package-windows/actions/workflows/ci.yml/badge.svg
+	:target: https://github.com/VirFunc/llvm-package-windows/actions/workflows/ci.yml
 .. image:: https://img.shields.io/badge/donate-@jancy.org-blue.svg
 	:align: right
 	:target: http://jancy.org/donate.html?donate=llvm-package
@@ -16,16 +16,6 @@ Releases
 		- LLVM Version
 		- Clang Version
 		- Remarks
-
-	*	- 2022-Dec-10
-		- `LLVM 15.0.3 <https://github.com/SakuraEngine/llvm-package-windows/releases/llvm-master>`_
-		- `Clang 15.0.3 <https://github.com/SakuraEngine/llvm-package-windows/releases/clang-master>`_
-		- The LLVM master branch
-
-	*	-
-		- LLVM x.x.x
-		- Clang x.x.x
-		- Create a `new issue <https://github.com/SakuraEngine/llvm-package-windows/issues/new>`__ to request a particular LLVM version
 
 Abstract
 --------
@@ -55,8 +45,3 @@ The ``llvm-package-windows`` project builds all major versions of LLVM on **GitH
 	- MSVCRT (dynamic)
 
 The resulting LLVM binary packages are uploaded as GitHub Release artifacts. Compiler developers can now thoroughly test their LLVM-dependent projects on GitHub CI or AppVeyor CI simply by downloading and unpacking an archive with the required LLVM prebuilt binaries during the CI installation stage.
-
-Sample
-------
-
-* `Jancy <https://github.com/SakuraEngine/jancy>`__ uses ``llvm-package-windows`` for CI testing on a range of configurations and LLVM versions. See `build logs <https://ci.appveyor.com/project/SakuraEngine/jancy>`__ for more details.
